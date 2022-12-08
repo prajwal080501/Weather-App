@@ -7,10 +7,10 @@ const MobileMenu = () => {
     
     // mobile navbar
     <>
-    <div className="lg:hidden w-screen h-fit px-3 flex items-center bg-gray-100">
+    <div className="lg:hidden w-screen sticky top-0 z-10 h-fit px-3 flex items-center bg-gray-100">
         <div className="flex items-center flex-1 justify-start">
-        <TiWeatherCloudy className="text-white m-5 bg-blue-500 h-12 px-2 rounded-full shadow-md w-12 hover:scale-105 hover:bg-blue-600 duration-200 cursor-pointer hover:ring-4 hover:ring-white hover:shadow-md" />
-        <p className="text-2xl cursor-pointer font-bold font-sans">
+        <TiWeatherCloudy className="text-white m-4 bg-blue-500 h-10 px-2 rounded-full shadow-md w-10 hover:scale-105 hover:bg-blue-600 duration-200 cursor-pointer hover:ring-4 hover:ring-white hover:shadow-md" />
+        <p className="text-xl cursor-pointer font-bold font-sans">
             Weather App
         </p>
         </div>
