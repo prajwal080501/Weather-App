@@ -10,6 +10,7 @@ import Footer from './Footer'
 import { saveAs } from 'file-saver';
 import html2canvas from 'html2canvas';
 import Clouds from './Clouds'
+import Alerts from './Alerts'
 
 const WeatherBox = () => {
   const [query, setQuery] = useState(
@@ -103,6 +104,7 @@ const WeatherBox = () => {
         <>
 
           <TimeLocation weatherData={weatherData} />
+          <Alerts weatherData={weatherData}/>
           <TemperatureDetails weatherData={weatherData} />
        
           <Forecast title="Hourly Forecast" items={weatherData.hourly} />

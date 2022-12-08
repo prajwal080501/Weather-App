@@ -4,7 +4,7 @@ import {motion} from 'framer-motion'
 const Clouds = () => {
   return (
     <>
-    <div className='hidden lg:inline absolute top-20 '>
+    <div className='hidden lg:inline absolute top-20 -z-10'>
         {/* add moving clouds */}
         <motion.div
             animate={{ x: [0, 100, 0] }}
@@ -25,7 +25,7 @@ const Clouds = () => {
             <BsCloudsFill className='text-white/30 text-6xl animate-[clouds] duration-2000' />
             </motion.div>
     </div>
-    <div className='hidden lg:inline absolute top-20 right-50 lg:right-80 w-96'>
+    <div className='hidden lg:inline absolute top-20 right-50 lg:right-80 w-96 -z-10'>
         {/* add moving clouds */}
         <motion.div
             animate={{ x: [0, 80, 0] }}

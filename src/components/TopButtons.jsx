@@ -24,7 +24,7 @@ const TopButtons = ({setQuery}) => {
         }
     ]
   return (
-    <div className='flex rounded-md p-1 items-center justify-center my-6 w-[100%] scrollbar-hide lg:overflow-y-hidden overflow-x-scroll mx-auto lg:mx-0 lg:w-[100%] '>
+    <div className='flex rounded-md p-1 items-center justify-center my-6 w-[100%] scrollbar-hide lg:overflow-x-hidden overflow-x-scroll mx-auto lg:mx-0  '>
         {cities.map((city) => (
             <button onClick={() => {
                 setQuery({q: city.name})
