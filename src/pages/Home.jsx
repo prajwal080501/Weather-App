@@ -6,7 +6,8 @@ import Navbar from './../components/Navbar';
 
 const Home = () => {
   return (
-    <div className=''>
+    <div className='dark:bg-gray-900 
+    '>
         <Navbar />
         <MobileMenu/>
         <WeatherBox />

@@ -5,7 +5,6 @@ import Input from './Input'
 import TemperatureDetails from './TemperatureDetails'
 import TimeLocation from './TimeLocation'
 import TopButtons from './TopButtons'
-import { motion } from 'framer-motion';
 import Footer from './Footer'
 import { saveAs } from 'file-saver';
 import html2canvas from 'html2canvas';
@@ -70,8 +69,18 @@ const WeatherBox = () => {
     if(weatherData.temp  == threshold) return 'bg-gradient-to-br from-cyan-700 to-blue-600 transition-all duration-500'
     if(weatherData.temp > threshold) return 'bg-gradient-to-br from-yellow-400 to-red-500 transition-all duration-500'
     if(weatherData.temp < threshold) return 'bg-gradient-to-br from-blue-400 to-indigo-500 transition-all duration-500'
+ 
   }
 
+  const handleDarkModeBackground = () => {
+
+    if(!weatherData) return 'dark:bg-gradient-to-br dark:from-gray-700 dark:to-gray-900 transition-all duration-500'
+    const threshold =  units === 'metric' ? 20 : 60;
+     // for dark mode
+      if(weatherData.temp  == threshold) return 'dark:bg-gradient-to-br dark:from-gray-700/10 dark:to-gray-900/50 transition-all duration-500'
+      if(weatherData.temp > threshold) return 'dark:bg-gradient-to-br dark:from-yellow-400/10 dark:to-red-500/50 transition-all duration-500'
+      if(weatherData.temp < threshold) return 'dark:bg-gradient-to-br dark:from-blue-400/10 dark:to-indigo-500/50 transition-all duration-500'
+  } 
   useEffect(() => {
     const fetchWeather = async () => {
       await getFormattedWeatherData({ ...query, units })
@@ -95,7 +104,7 @@ const WeatherBox = () => {
       // transition={{ duration: 1 }}
       id="canvas"
       className={
-        `mx-auto rounded-none lg:rounded-xl mb-10 w-[100%] lg:max-w-screen-md mt-0 lg:mt-5 py-5 px-25 lg:px-32 bg-gradient-to-br from-cyan-700 to-blue-600 h-fit shadow-xl shadow-gray-400 ${handleBackground()} duration-200 ease-linear`
+        `mx-auto rounded-none bg-gray-900 dark:shadow-md dark:shadow-black lg:rounded-xl w-[100%]  lg:max-w-screen-md mt-0 lg:mt-5 py-5 px-25 lg:px-32 bg-gradient-to-br from-cyan-700 to-blue-600 h-fit shadow-xl shadow-gray-400 ${handleBackground()} dark:${handleDarkModeBackground()} duration-200 ease-linear`
       }>
         <Clouds/>
       <TopButtons setQuery={setQuery} />
