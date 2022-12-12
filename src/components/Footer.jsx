@@ -34,7 +34,11 @@ const Footer = ({shareScreenshot}) => {
             </button>
             </div>
             </div>
-    </div>
+            {/* terms and privacy plicy */}
+            <div className='flex flex-col items-center justify-center mt-8'>
+              <a href='https://www.freeprivacypolicy.com/live/837700e9-fc30-4fd1-9026-8b632c9859c8' target='_blank' rel='noreferrer' className='text-white text-normal lg:text-xl font-extralight'>Privacy Policy</a>
+              </div>
+    </div>  
   )
 }
 

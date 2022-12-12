@@ -105,7 +105,7 @@ const WeatherBox = () => {
       // transition={{ duration: 1 }}
       id="canvas"
       className={
-        `mx-auto rounded-none bg-gray-900 dark:shadow-md dark:shadow-black lg:rounded-xl w-[100%] items-center justify-center  lg:max-w-screen-md mt-0 lg:mt-5 py-5 px-25 lg:px-32 bg-gradient-to-br from-cyan-700 to-blue-600 h-fit shadow-xl shadow-gray-400 ${handleBackground()} dark:${handleDarkModeBackground()} duration-200 ease-linear`
+        `mx-auto rounded-none bg-gray-900 dark:shadow-md dark:shadow-black lg:rounded-xl w-[100%] items-center justify-center  lg:max-w-screen-md mt-0  py-5 px-25 lg:px-32 bg-gradient-to-br from-cyan-700 to-blue-600 h-fit shadow-xl shadow-gray-400 ${handleBackground()} dark:${handleDarkModeBackground()} duration-200 ease-linear`
       }>
         <Clouds/>
       <TopButtons setQuery={setQuery} />

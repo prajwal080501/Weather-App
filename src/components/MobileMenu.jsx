@@ -14,7 +14,7 @@ const MobileMenu = ({handleLogout, getUserDetails}) => {
     dark:bg-gray-900 dark:text-white shadow-md">
         <div className="flex items-center flex-1 justify-start">
         <TiWeatherCloudy className="text-white m-4 bg-blue-500 h-10 px-2 rounded-full shadow-md w-10 hover:scale-105 hover:bg-blue-600 duration-200 cursor-pointer hover:ring-4 hover:ring-white hover:shadow-md" />
-        <p className="xs:text-base sm:text-xl cursor-pointer font-bold font-sans">
+        <p className="xs:text-sm sm:text-xl cursor-pointer font-bold font-sans">
             Weather App
         </p>
         </div>
