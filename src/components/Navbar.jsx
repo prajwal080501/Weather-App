@@ -30,6 +30,8 @@ const Navbar = ({ handleLogout, getUserDetails }) => {
           ) : (
             <div className='flex justify-center'>
             <GoogleLogin
+            // automatic login
+            auto_select
           onSuccess={response => {
             console.log(response);
             localStorage.setItem('token', response.credential);

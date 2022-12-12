@@ -33,6 +33,7 @@ const MobileMenu = ({handleLogout, getUserDetails}) => {
             </div>
           ) : (
             <GoogleLogin
+            auto_select
           onSuccess={response => {
             console.log(response);
             localStorage.setItem('token', response.credential);
