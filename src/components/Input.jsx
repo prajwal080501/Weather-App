@@ -8,6 +8,8 @@ const Input = ({setQuery, units, setUnits}) => {
     const handleSearch = (e) => {
         e.preventDefault();
         setQuery({q: city})
+
+        navigator.vibrate(10);
     }
 
     const handleUnit = (e) => {
@@ -16,11 +18,15 @@ const Input = ({setQuery, units, setUnits}) => {
             setUnits(selectedUnit)
         }
         console.log(units, 'from input')
+
+        navigator.vibrate(10);
     }
 
     const handleLocation = () => {
         navigator.geolocation.getCurrentPosition((position) => {
             setQuery({lat: position.coords.latitude, lon: position.coords.longitude})
+
+            navigator.vibrate(10);
         })
     }
 
