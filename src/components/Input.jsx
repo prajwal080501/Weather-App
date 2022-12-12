@@ -46,7 +46,11 @@ const Input = ({ setQuery, units, setUnits }) => {
             transition={{ duration: 1 }}
             className="flex flex-row justify-center w-[90%] mx-auto lg:mx-0 lg:w-full items-center my-6 space-x-2">
             <form onSubmit={handleSubmitHidden} className="flex flex-row w-[90%] lg:w-3/4 items-center justify-center space-x-5">
-                <input value={city} onChange={
+                <motion.input
+                    initial={{ opacity: 0, x: -100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1 }}
+                 value={city} onChange={
                     (e) => setCity(e.target.value)
                 } type="text" className="w-full rounded-md p-2 bg-white text-black font-extralight outline-none placeholder-gray-400 shadow-lg  capitalize placeholder:lowercase focus:shadow-sm duration-200 ease-linear" placeholder="Search Location" />
                 <AiOutlineSearch onClick={handleSearch} size={34} className="text-2xl text-white cursor-pointer hover:scale-125 duration-200" />
@@ -54,7 +58,11 @@ const Input = ({ setQuery, units, setUnits }) => {
                 {/* add a hidden button for submitting on enter press */}
                 <button type="submit" />
             </form>
-            <div className="flex flex-row w-1/4 -ml-8 items-center justify-center">
+            <motion.div
+                initial={{ opacity: 0, x: 200 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
+             className="flex flex-row w-1/4 -ml-8 items-center justify-center">
                 <button name="metric" onClick={
                     handleUnit
                 } className="text-xl hover:scale-125 duration-200 text-white font-light">
@@ -64,7 +72,7 @@ const Input = ({ setQuery, units, setUnits }) => {
                 <button name="imperial" onClick={handleUnit} className="text-xl text-white hover:scale-125 duration-200 font-light">
                     <span className="text-2xl font-light">°F</span>
                 </button>
-            </div>
+            </motion.div>
         </motion.div>
     )
 }

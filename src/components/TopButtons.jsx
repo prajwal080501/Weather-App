@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {motion} from 'framer-motion'
 const TopButtons = ({setQuery}) => {
     const cities = [
         {
@@ -24,7 +24,11 @@ const TopButtons = ({setQuery}) => {
         }
     ]
   return (
-    <div className='flex rounded-md p-1 items-center justify-center my-6 w-[100%] scrollbar-hide lg:overflow-x-hidden overflow-x-scroll mx-auto lg:mx-0  '>
+    <motion.div
+        initial={{opacity: 0, y: -100}}
+        animate={{opacity: 1, y: 0, scale: 1}}
+        transition={{duration: 1}}
+     className='flex rounded-md p-1 items-center justify-center my-6 w-[100%] scrollbar-hide lg:overflow-x-hidden overflow-x-scroll mx-auto lg:mx-0  '>
         {cities.map((city) => (
             <button onClick={() => {
                 setQuery({q: city.name})
@@ -32,7 +36,7 @@ const TopButtons = ({setQuery}) => {
                 {city.name}
             </button>
         ))}
-    </div>
+    </motion.div>
   )
 }
 

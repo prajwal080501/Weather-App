@@ -3,10 +3,15 @@ import {TbTemperature as Temperature} from 'react-icons/tb'
 import {BiDroplet as Humidity, BiWind as Wind} from 'react-icons/bi'
 import {BsSun as Sun, BsCloudSun as CloudSun} from 'react-icons/bs'
 import { formatToLocalTime } from '../services/weatherservice'
+import { motion } from 'framer-motion'
 const TemperatureDetails = ({weatherData: {
     details, sunrise, sunset,timezone, temp_min, temp_max, icon, humidity, temp, feels_like, speed}}) => {
     return (
-        <div className="w-[90%] lg:w-full mx-auto lg:mx-0">
+        <motion.div
+        initial={{opacity: 0, y: -100}}
+        animate={{opacity: 1, y: 0, scale: 1}}
+        transition={{duration: 1}}
+         className="w-[90%] lg:w-full mx-auto lg:mx-0">
             <div className="flex  flex-row justify-center items-center py-6 text-xl text-cyan-300">
                 <p>{details}</p>
             </div>
@@ -61,7 +66,7 @@ const TemperatureDetails = ({weatherData: {
                     </span>
                 </p>
             </div>
-        </div>
+        </motion.div>
     )
 }
 
