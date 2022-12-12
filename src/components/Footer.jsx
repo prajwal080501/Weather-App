@@ -1,6 +1,18 @@
 import React from 'react'
 import {HiDownload} from 'react-icons/hi'
+import {AiOutlineShareAlt} from 'react-icons/ai'
 const Footer = ({shareScreenshot}) => {
+  const shareWebsite = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Weather App',
+        text: 'Check out this awesome weather app',
+        url: 'https://appweatherweb.vercel.app/',
+      })
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing', error));
+    }
+  }
   return (
     <div className='bg-transparent w-full h-fit pt-8'>
         <div className='flex flex-col items-center justify-center'>
@@ -12,9 +24,15 @@ const Footer = ({shareScreenshot}) => {
             
             <span className='font-semibold'><a href='https://openweathermap.org/' target='_blank' rel='noreferrer'>OpenWeatherMap</a></span></p>
             {/* add a download button at right corner */}
+            <div className='flex flex-row items-center justify-center space-x-4 mt-8'>
             <button onClick={shareScreenshot} className='bg-transparent text-white text-3xl px-2 lg:px-2 font-extrabold flex justify-end w-fit items-end self-end pr-3 animate-bounce duration-200 hover:scale-110'>
                 <HiDownload />
             </button>
+            {/* share button */}
+            <button onClick={shareWebsite} className='bg-transparent text-white text-3xl px-2 lg:px-2 font-extrabold flex justify-end w-fit items-end self-end pr-3 animate-bounce duration-200 hover:scale-110'>
+                <AiOutlineShareAlt />
+            </button>
+            </div>
             </div>
     </div>
   )
