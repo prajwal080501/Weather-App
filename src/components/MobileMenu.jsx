@@ -1,8 +1,11 @@
 import { TiWeatherCloudy } from 'react-icons/ti'
 import {HiMenuAlt4} from 'react-icons/hi'
 import React from 'react'
-
-const MobileMenu = () => {
+import {useContext} from 'react'
+import { UserContext } from '../App'
+import { GoogleLogin } from '@react-oauth/google'
+const MobileMenu = ({handleLogout, getUserDetails}) => {
+  const user = useContext(UserContext);
   return (
     
     // mobile navbar
@@ -15,6 +18,30 @@ const MobileMenu = () => {
             Weather App
         </p>
         </div>
+        {/* display logout button and user name and profile */}
+       {
+          user.name ? (
+            <div className="flex items-center flex-1 justify-end space-x-5">
+            {/* logout button */}
+            <button onClick={handleLogout} className="bg-blue-500 text-white px-5 py-2 rounded-md shadow-md hover:bg-blue-600 duration-200">Logout</button>
+            <p className="text-lg font-medium">{
+              // display first word of name
+              user.name ? user.name.split(' ')[0] : ''
+            }
+            </p>
+            <img src={user.picture} alt="" className="h-10 w-10 rounded-full" />
+            </div>
+          ) : (
+            <GoogleLogin
+          onSuccess={response => {
+            console.log(response);
+            localStorage.setItem('token', response.credential);
+            getUserDetails();
+          }}
+          useOneTap
+        />
+          )
+       }
     </div>
         </>
   )

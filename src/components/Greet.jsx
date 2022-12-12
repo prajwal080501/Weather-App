@@ -1,17 +1,28 @@
 import React from 'react'
 import { TiWeatherNight, TiWeatherPartlySunny, TiWeatherSunny } from 'react-icons/ti';
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
+import { useContext } from 'react'
+import { UserContext } from '../App';
 const Greet = () => {
+    const user = useContext(UserContext);
     function getGreeting() {
         let today = new Date();
         let curHr = today.getHours();
 
         if (curHr < 12) {
-            return "Good Morning";
+            return `Good Morning ${
+                user.name ? user.name : ''
+            }`;
         } else if (curHr < 18) {
-            return "Good Afternoon";
-        } else {
-            return "Good Evening";
+            return `Good Afternoon ${user.name ? user.name : ''}`;
+        }
+        else if (curHr < 22) {
+            return `Good Evening ${
+                user.name ? user.name : ' '
+            }`;
+        }
+        else {
+            return `Good Night ${user.name ? user.name : ''}`;
         }
     }
 
@@ -28,31 +39,31 @@ const Greet = () => {
         }
     }
 
-  return (
-    <motion.div 
-        initial={{opacity: 0}}
-        animate={{opacity: 1}}
-        transition={{duration: 1}}
-    className='bg-transparent w-full h-fit pt-8'>
-        <div className='flex flex-row items-center justify-center'>
-            <motion.p 
-                initial={{opacity: 0, y: -100, scale: 0.5}}
-                animate={{opacity: 1, y: 0, scale: 1}}
-                transition={{duration: 1}}
-            className="text-xl lg:text-3xl font-semibold text-start text-white/50">{
-                getGreeting()
-                // morning icon from openweather api
-            }</motion.p>
-          <motion.p
-            initial={{opacity: 0, y: -100, scale: 0.5}}
-            animate={{opacity: 1, y: 0, scale: 1}}
-            transition={{duration: 1}}
-          >
-          {handleIcon()}
-          </motion.p>
+    return (
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className='bg-transparent w-full h-fit pt-8'>
+            <div className='flex flex-row flex-1 items-center justify-center'>
+                <motion.p
+                    initial={{ opacity: 0, y: -100, scale: 0.5 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 1 }}
+                    className="text-xl lg:text-3xl font-semibold text-center text-white/50">{
+                        getGreeting()
+                        // morning icon from openweather api
+                    }</motion.p>
+                <motion.p
+                    initial={{ opacity: 0, y: -100, scale: 0.5 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 1 }}
+                >
+                    {handleIcon()}
+                </motion.p>
             </div>
         </motion.div>
-  )
+    )
 }
 
 export default Greet
