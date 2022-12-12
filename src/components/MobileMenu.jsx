@@ -21,9 +21,9 @@ const MobileMenu = ({handleLogout, getUserDetails}) => {
         {/* display logout button and user name and profile */}
        {
           user.name ? (
-            <div className="flex items-center flex-1 justify-end space-x-5">
+            <div className="flex items-center flex-1 justify-end space-x-3 lg:space-x-5">
             {/* logout button */}
-            <button onClick={handleLogout} className="bg-blue-500 text-white px-5 py-2 rounded-md shadow-md hover:bg-blue-600 duration-200">Logout</button>
+            <button onClick={handleLogout} className="bg-blue-500 text-white px-3 active:scale-95 text-sm py-1 rounded-md drop-shadow-lg hover:bg-blue-600 duration-200">Logout</button>
             <p className="text-lg font-medium">{
               // display first word of name
               user.name ? user.name.split(' ')[0] : ''
