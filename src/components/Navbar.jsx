@@ -3,7 +3,7 @@ import { TiWeatherCloudy } from 'react-icons/ti'
 
 const Navbar = () => {
   return (
-    <div className="hidden lg:inline-flex sticky top-0 z-10 w-screen h-[10vh] px-3 items-center bg-gray-100 drop-shadow-md 
+    <div className="hidden lg:inline-flex sticky top-0 z-20 w-screen h-[10vh] px-3 items-center bg-gray-100 drop-shadow-md 
     dark:bg-gray-800 dark:text-white dark:drop-shadow-none
     ">
       <div className="flex items-center flex-1">

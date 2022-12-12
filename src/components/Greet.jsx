@@ -39,7 +39,7 @@ const Greet = () => {
                 initial={{opacity: 0, y: -100, scale: 0.5}}
                 animate={{opacity: 1, y: 0, scale: 1}}
                 transition={{duration: 1}}
-            className="text-xl z-10 lg:text-3xl font-semibold text-start text-white/50">{
+            className="text-xl lg:text-3xl font-semibold text-start text-white/50">{
                 getGreeting()
                 // morning icon from openweather api
             }</motion.p>
