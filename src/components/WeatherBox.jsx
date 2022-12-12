@@ -10,6 +10,7 @@ import { saveAs } from 'file-saver';
 import html2canvas from 'html2canvas';
 import Clouds from './Clouds'
 import Alerts from './Alerts'
+import Greet from './Greet'
 
 const WeatherBox = () => {
   const [query, setQuery] = useState(
@@ -111,7 +112,7 @@ const WeatherBox = () => {
       <Input setQuery={setQuery} unitss={units} setUnits={setUnits} />
       {weatherData && (
         <>
-
+        <Greet/>
           <TimeLocation weatherData={weatherData} />
           <Alerts weatherData={weatherData}/>
           <TemperatureDetails weatherData={weatherData} />
